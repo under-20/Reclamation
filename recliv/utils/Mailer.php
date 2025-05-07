@@ -32,8 +32,8 @@ class Mailer
             <style>
                 body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
                 .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                .header { background-color: #2C3E50; color: white; padding: 15px; text-align: center; }
-                .content { padding: 20px; background-color: #f9f9f9; }
+                .header { background-color: #27445D; color: white; padding: 15px; text-align: center; }
+                .content { padding: 20px; background-color: #FBFBFB; }
                 .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #777; }
             </style>
         </head>
@@ -77,10 +77,10 @@ class Mailer
             <style>
                 body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
                 .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                .header { background-color: #2C3E50; color: white; padding: 15px; text-align: center; }
-                .content { padding: 20px; background-color: #f9f9f9; }
+                .header { background-color: #27445D; color: white; padding: 15px; text-align: center; }
+                .content { padding: 20px; background-color: #FBFBFB; }
                 .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #777; }
-                .response { background-color: #e1f5fe; padding: 15px; border-left: 4px solid #2196f3; margin: 15px 0; }
+                .response { background-color: #71bbb2; padding: 15px; border-left: 4px solid #2196f3; margin: 15px 0; }
             </style>
         </head>
         <body>

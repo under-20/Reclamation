@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Add Response - Admin Dashboard</title>
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <script src="https://unpkg.com/lucide@latest"></script>
         <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -139,6 +141,113 @@
         </style>
     </head>
     <body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="alivre.png" alt="Le Alivre">
+            </a>
+            
+            <div class="nav-links">
+                <a href="#categories">Categories</a>
+                <a href="#new-releases">New Releases</a>
+                <a href="#bestsellers">Bestsellers</a>
+                <a href="#deals">Deals</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="icon-button" onclick="toggleSearch()">
+                    <i data-lucide="search"></i>
+                </button>
+                <a href="#wishlist" class="icon-button">
+                    <i data-lucide="heart"></i>
+                </a>
+                <a href="cart.html" class="icon-button cart-icon">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a>
+                <a href="admin.html" class="icon-button">
+                    <i data-lucide="user"></i>
+                </a>
+                <button class="menu-button" onclick="toggleMenu()">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div id="searchBar" class="search-bar">
+        <div class="container">
+            <input type="text" placeholder="Search for books, authors, or ISBN...">
+            <button><i data-lucide="search"></i></button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1>Discover Your Next<br>Great Read</h1>
+            <p>Explore our vast collection of books across all genres. 
+               From bestsellers to rare finds, we have something for every reader.</p>
+            <div class="hero-buttons">
+                <button class="btn primary">
+                    Browse Collection
+                    <i data-lucide="chevron-right"></i>
+                </button>
+                <button class="btn secondary">Today's Deals</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books -->
+<section class="featured-books">
+    <div class="container">
+        <div class="section-header">
+            <h2>Featured Books</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn">
+                    <i data-lucide="trending-up"></i> Trending
+                </button>
+                <button class="filter-btn">
+                    <i data-lucide="clock"></i> New Releases
+                </button>
+            </div>
+        </div>
+        <div class="books-grid">
+        
+
+        </div>
+    </div>
+</section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter and get notified about new releases, exclusive deals, and reading recommendations.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit" class="btn primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function toggleSearch() {
+            document.getElementById('searchBar').classList.toggle('active');
+        }
+
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+
         <div class="container">
             <header>
                 <h1>Add Response
