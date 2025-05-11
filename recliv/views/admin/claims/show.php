@@ -4,29 +4,27 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>View Claim - Admin Dashboard</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
         <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 line-height: 1.6;
                 margin: 0;
                 padding: 0;
-                background-color: #f5f5f5;
-                color: #333;
+                background-color: #EFE9D5;
+                color: #27445D;
             }
             .container {
                 width: 90%;
                 max-width: 1200px;
                 margin: 20px auto;
                 padding: 20px;
-                background-color: #fff;
+                background-color: #FBFBFB;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 border-radius: 8px;
             }
             header {
-                background-color: #2C3E50;
-                color: white;
+                background-color: #27445D;
+                color: #FBFBFB;
                 padding: 1rem;
                 text-align: center;
                 border-radius: 5px 5px 0 0;
@@ -35,11 +33,11 @@
             h1,
             h2,
             h3 {
-                color: #2c3e50;
+                color: #27445D;
             }
             .admin-badge {
-                background-color: #e74c3c;
-                color: white;
+                background-color: #497074;
+                color: #FBFBFB;
                 padding: 3px 8px;
                 border-radius: 3px;
                 font-size: 14px;
@@ -48,22 +46,22 @@
             .nav-links {
                 display: flex;
                 justify-content: space-between;
-                background-color: #f1f5fd;
+                background-color: #FBFBFB;
                 padding: 10px;
                 border-radius: 5px;
                 margin-bottom: 20px;
             }
             .nav-links a {
-                color: #2C3E50;
+                color: #27445D;
                 text-decoration: none;
                 padding: 8px 12px;
                 border-radius: 4px;
             }
             .nav-links a:hover {
-                background-color: #e1e8fd;
+                background-color: #EFE9D5;
             }
             .claim-card {
-                background-color: #f9f9f9;
+                background-color: #FBFBFB;
                 padding: 20px;
                 border-radius: 8px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -74,15 +72,15 @@
                 justify-content: space-between;
                 align-items: center;
                 margin-bottom: 15px;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid #718882;
                 padding-bottom: 10px;
             }
             .claim-subject {
                 font-weight: 600;
-                color: #2C3E50;
+                color: #27445D;
             }
             .claim-date {
-                color: #777;
+                color: #718882;
                 font-size: 0.9em;
             }
             .claim-content {
@@ -98,17 +96,17 @@
                 margin-bottom: 15px;
             }
             .claim-status.open {
-                background-color: #e1f5fe;
-                color: #0288d1;
+                background-color: #EFE9D5;
+                color: #497074;
             }
             .claim-status.closed {
-                background-color: #e8f5e9;
-                color: #388e3c;
+                background-color: #FBFBFB;
+                color: #718882;
             }
             .status-form {
                 margin: 20px 0;
                 padding: 15px;
-                background-color: #f1f5fd;
+                background-color: #EFE9D5;
                 border-radius: 8px;
             }
             .status-form label {
@@ -127,36 +125,36 @@
                 transition: background-color 0.3s;
             }
             .btn-back {
-                background-color: #6c757d;
+                background-color: #718882;
                 margin-right: 10px;
             }
             .btn-back:hover {
-                background-color: #5a6268;
+                background-color: #497074;
             }
             .btn-respond {
-                background-color: #2C3E50;
+                background-color: #497074;
             }
             .btn-respond:hover {
-                background-color: #1a252f;
+                background-color: #718882;
             }
             .btn-status {
-                background-color: #4A6FDC;
+                background-color: #497074;
                 margin-left: 10px;
             }
             .btn-status:hover {
-                background-color: #345BBD;
+                background-color: #718882;
             }
             .btn-edit {
-                background-color: #FFA000;
+                background-color: #718882;
             }
             .btn-edit:hover {
-                background-color: #FF8F00;
+                background-color: #497074;
             }
             .btn-delete {
-                background-color: #F44336;
+                background-color: #27445D;
             }
             .btn-delete:hover {
-                background-color: #D32F2F;
+                background-color: #1a2f3d;
             }
             .btn-group {
                 margin-top: 20px;
@@ -166,8 +164,8 @@
                 margin-top: 40px;
             }
             .response-card {
-                background-color: #f0f4f8;
-                border-left: 4px solid #2C3E50;
+                background-color: #EFE9D5;
+                border-left: 4px solid #497074;
                 padding: 15px;
                 margin-bottom: 15px;
                 border-radius: 4px;
@@ -178,7 +176,7 @@
                 margin-bottom: 10px;
             }
             .response-date {
-                color: #777;
+                color: #718882;
                 font-size: 0.9em;
             }
             .response-content {
@@ -194,9 +192,9 @@
             .no-responses {
                 text-align: center;
                 padding: 20px;
-                background-color: #f0f4f8;
+                background-color: #FBFBFB;
                 border-radius: 4px;
-                color: #777;
+                color: #718882;
             }
             .alert {
                 padding: 15px;
@@ -204,130 +202,25 @@
                 border-radius: 4px;
             }
             .alert-success {
-                background-color: #d4edda;
-                color: #155724;
+                background-color: #EFE9D5;
+                color: #497074;
+                border: 1px solid #497074;
             }
             .user-link {
                 margin-top: 30px;
                 text-align: right;
             }
             .user-link a {
-                color: #777;
+                color: #718882;
                 text-decoration: none;
             }
             .user-link a:hover {
                 text-decoration: underline;
+                color: #497074;
             }
         </style>
     </head>
     <body>
-
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="alivre.png" alt="Le Alivre">
-            </a>
-            
-            <div class="nav-links">
-                <a href="#categories">Categories</a>
-                <a href="#new-releases">New Releases</a>
-                <a href="#bestsellers">Bestsellers</a>
-                <a href="#deals">Deals</a>
-            </div>
-
-            <div class="nav-actions">
-                <button class="icon-button" onclick="toggleSearch()">
-                    <i data-lucide="search"></i>
-                </button>
-                <a href="#wishlist" class="icon-button">
-                    <i data-lucide="heart"></i>
-                </a>
-                <a href="cart.html" class="icon-button cart-icon">
-                    <i data-lucide="shopping-cart"></i>
-                    <span class="cart-count">3</span>
-                </a>
-                <a href="admin.html" class="icon-button">
-                    <i data-lucide="user"></i>
-                </a>
-                <button class="menu-button" onclick="toggleMenu()">
-                    <i data-lucide="menu"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Search Bar -->
-    <div id="searchBar" class="search-bar">
-        <div class="container">
-            <input type="text" placeholder="Search for books, authors, or ISBN...">
-            <button><i data-lucide="search"></i></button>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <h1>Discover Your Next<br>Great Read</h1>
-            <p>Explore our vast collection of books across all genres. 
-               From bestsellers to rare finds, we have something for every reader.</p>
-            <div class="hero-buttons">
-                <button class="btn primary">
-                    Browse Collection
-                    <i data-lucide="chevron-right"></i>
-                </button>
-                <button class="btn secondary">Today's Deals</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Books -->
-<section class="featured-books">
-    <div class="container">
-        <div class="section-header">
-            <h2>Featured Books</h2>
-            <div class="filter-buttons">
-                <button class="filter-btn">
-                    <i data-lucide="trending-up"></i> Trending
-                </button>
-                <button class="filter-btn">
-                    <i data-lucide="clock"></i> New Releases
-                </button>
-            </div>
-        </div>
-        <div class="books-grid">
-        
-
-        </div>
-    </div>
-</section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Stay Updated</h2>
-            <p>Subscribe to our newsletter and get notified about new releases, exclusive deals, and reading recommendations.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email">
-                <button type="submit" class="btn primary">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <script>
-        function toggleSearch() {
-            document.getElementById('searchBar').classList.toggle('active');
-        }
-
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
-        }
-
-        // Initialize Lucide Icons
-        lucide.createIcons();
-    </script>
-
         <div class="container">
             <header>
                 <h1>View Claim
@@ -342,8 +235,7 @@
             </div>
 
             <?php if (isset($_SESSION['success'])): ?>
-                <div
-                    class="alert alert-success"><?php
+                <div class="alert alert-success"><?php
                     echo $_SESSION['success'];
                     unset($_SESSION['success']);
                     ?>

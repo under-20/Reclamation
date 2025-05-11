@@ -1,23 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Claims Statistics by Subject - Admin Dashboard</title>
-    <link
-    rel="stylesheet" href="../assets/css/reset.css">
-    <!-- Added Chart.js library -->
+    <link rel="stylesheet" href="../assets/css/reset.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
         margin: 0;
         padding: 0;
-        background-color: #f5f5f5;
-        color: #333;
+        background-color: #efe9d5;
+        color: #27445D;
       }
       .container {
         width: 90%;
@@ -27,10 +24,11 @@
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
+        border: 1px solid #EFE9D5;
       }
       header {
-        background-color: #2C3E50;
-        color: white;
+        background-color: #27445D;
+        color:  #FBFBFB;
         padding: 1rem;
         text-align: center;
         border-radius: 5px 5px 0 0;
@@ -39,51 +37,55 @@
       h1,
       h2,
       h3 {
-        color: #2c3e50;
+        color: #27445D;
       }
       .portal-links {
         display: flex;
         justify-content: center;
         padding: 15px;
-        background-color: #1a252f;
+        background-color: #27445D;
         margin-bottom: 20px;
         border-radius: 4px;
       }
       .portal-links a {
-        color: white;
+        color: #FBFBFB;
         text-decoration: none;
         padding: 10px 20px;
         margin: 0 10px;
         border-radius: 4px;
-        background-color: #375a7f;
+        background-color: #497074;
+        transition: all 0.3s ease;
       }
       .portal-links a.active {
-        background-color: #e74c3c;
+        background-color: #718882;
         font-weight: bold;
       }
       .portal-links a:hover {
-        background-color: #4a6b8f;
+        background-color: #718882;
+        transform: translateY(-2px);
       }
       .nav-links {
         display: flex;
         justify-content: space-between;
-        background-color: #f1f5fd;
+        background-color: #FBFBFB;
         padding: 10px;
         border-radius: 5px;
         margin-bottom: 20px;
+        border: 1px solid #EFE9D5;
       }
       .nav-links a {
-        color: #2C3E50;
+        color: #27445D;
         text-decoration: none;
         padding: 8px 12px;
         border-radius: 4px;
+        transition: background-color 0.3s;
       }
       .nav-links a:hover {
-        background-color: #e1e8fd;
+        background-color: #EFE9D5;
       }
       .admin-badge {
-        background-color: #e74c3c;
-        color: white;
+        background-color: #497074;
+        color: #FBFBFB;
         padding: 3px 8px;
         border-radius: 3px;
         font-size: 14px;
@@ -91,7 +93,7 @@
       }
       .btn {
         display: inline-block;
-        background-color: #2C3E50;
+        background-color: #718882;
         color: white;
         padding: 8px 15px;
         border: none;
@@ -99,12 +101,21 @@
         text-decoration: none;
         cursor: pointer;
         font-size: 15px;
-        transition: background-color 0.3s;
+        transition: all 0.3s ease;
       }
+
+ .btn-view {
+                background-color: #497074;
+            }
+            .btn-view:hover {
+                background-color: #718882;
+            }
+           
       .btn:hover {
-        background-color: #1a252f;
-      }
-      .stats-container {
+        background-color: #27445D;
+        transform: translateY(-2px);
+        box-shadow: 0 3px 8px rgba(39, 68, 93, 0.2);
+      }      .stats-container {
         margin-top: 20px;
       }
       .stats-header {
@@ -116,24 +127,26 @@
       .stats-title {
         font-size: 1.5rem;
         font-weight: 600;
+        color: #2C3E50;
       }
       .stats-card {
-        background-color: #f9f9f9;
+        background-color: #FFFFFF;
         border-radius: 8px;
         padding: 20px;
         margin-bottom: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 5px rgba(160, 174, 192, 0.1);
+        border: 1px solid #E2E8F0;
         transition: transform 0.2s ease;
       }
       .stats-card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 10px rgba(160, 174, 192, 0.2);
       }
       .stats-card h3 {
         font-size: 1.3rem;
         margin-bottom: 15px;
-        color: #2c3e50;
-        border-bottom: 2px solid #e1e8fd;
+        color: #4A5568;
+        border-bottom: 2px solid #EDF2F7;
         padding-bottom: 10px;
       }
       .stats-grid {
@@ -142,13 +155,14 @@
         gap: 20px;
       }
       .stats-summary {
-        background-color: #eef2f7;
+        background-color: #F7FAFC;
         border-radius: 6px;
         padding: 15px;
         margin-bottom: 20px;
+        border: 1px solid #E2E8F0;
       }
       .stats-summary h3 {
-        color: #2c3e50;
+        color: #4A5568;
         margin-bottom: 10px;
       }
       .stats-numbers {
@@ -161,38 +175,37 @@
         flex: 1;
         padding: 10px;
         border-radius: 6px;
-      }
-      .stats-number-item.total {
-        background-color: #e1e8fd;
+        background-color: #EDF2F7;
       }
       .stats-number-item.open {
-        background-color: #e1f5fe;
+        background-color: #EBF8FF;
       }
       .stats-number-item.closed {
-        background-color: #e8f5e9;
+        background-color: #F0FFF4;
       }
       .stats-number-value {
         font-size: 24px;
         font-weight: 700;
+        color: #2D3748;
       }
       .stats-number-label {
         font-size: 14px;
-        color: #5c6873;
+        color: #718096;
       }
       .stats-bar {
         height: 24px;
         border-radius: 12px;
-        background-color: #e0e0e0;
+        background-color: #E2E8F0;
         margin: 15px 0;
         overflow: hidden;
         display: flex;
       }
       .stats-bar-open {
-        background-color: #2196f3;
+        background-color: #4299E1;
         height: 100%;
       }
       .stats-bar-closed {
-        background-color: #4caf50;
+        background-color: #48BB78;
         height: 100%;
       }
       .stats-bar-legend {
@@ -213,26 +226,28 @@
         margin-right: 5px;
       }
       .legend-color.open {
-        background-color: #2196f3;
+        background-color: #4299E1;
       }
       .legend-color.closed {
-        background-color: #4caf50;
+        background-color: #48BB78;
       }
       .empty-state {
         text-align: center;
         padding: 30px;
-        color: #777;
-        background-color: #f9f9f9;
+        color: #718096;
+        background-color: #F7FAFC;
         border-radius: 8px;
         margin-top: 30px;
+        border: 1px dashed #CBD5E0;
       }
 
       .chart-container {
-        background-color: #fff;
+        background-color: #efe9d5;
         border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 5px rgba(160, 174, 192, 0.1);
         padding: 20px;
         margin-bottom: 30px;
+        border: 1px solid #E2E8F0;
       }
 
       .chart-row {
@@ -255,119 +270,12 @@
       .chart-title {
         font-size: 1.2rem;
         margin-bottom: 15px;
-        color: #2c3e50;
+        color: #4A5568;
         text-align: center;
       }
     </style>
-  </head>
+      </head>
   <body>
-
-  <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="alivre.png" alt="Le Alivre">
-            </a>
-            
-            <div class="nav-links">
-                <a href="#categories">Categories</a>
-                <a href="#new-releases">New Releases</a>
-                <a href="#bestsellers">Bestsellers</a>
-                <a href="#deals">Deals</a>
-            </div>
-
-            <div class="nav-actions">
-                <button class="icon-button" onclick="toggleSearch()">
-                    <i data-lucide="search"></i>
-                </button>
-                <a href="#wishlist" class="icon-button">
-                    <i data-lucide="heart"></i>
-                </a>
-                <a href="cart.html" class="icon-button cart-icon">
-                    <i data-lucide="shopping-cart"></i>
-                    <span class="cart-count">3</span>
-                </a>
-                <a href="admin.html" class="icon-button">
-                    <i data-lucide="user"></i>
-                </a>
-                <button class="menu-button" onclick="toggleMenu()">
-                    <i data-lucide="menu"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Search Bar -->
-    <div id="searchBar" class="search-bar">
-        <div class="container">
-            <input type="text" placeholder="Search for books, authors, or ISBN...">
-            <button><i data-lucide="search"></i></button>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <h1>Discover Your Next<br>Great Read</h1>
-            <p>Explore our vast collection of books across all genres. 
-               From bestsellers to rare finds, we have something for every reader.</p>
-            <div class="hero-buttons">
-                <button class="btn primary">
-                    Browse Collection
-                    <i data-lucide="chevron-right"></i>
-                </button>
-                <button class="btn secondary">Today's Deals</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Books -->
-<section class="featured-books">
-    <div class="container">
-        <div class="section-header">
-            <h2>Featured Books</h2>
-            <div class="filter-buttons">
-                <button class="filter-btn">
-                    <i data-lucide="trending-up"></i> Trending
-                </button>
-                <button class="filter-btn">
-                    <i data-lucide="clock"></i> New Releases
-                </button>
-            </div>
-        </div>
-        <div class="books-grid">
-        
-
-        </div>
-    </div>
-</section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Stay Updated</h2>
-            <p>Subscribe to our newsletter and get notified about new releases, exclusive deals, and reading recommendations.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email">
-                <button type="submit" class="btn primary">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <script>
-        function toggleSearch() {
-            document.getElementById('searchBar').classList.toggle('active');
-        }
-
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
-        }
-
-        // Initialize Lucide Icons
-        lucide.createIcons();
-    </script>
-
     <div class="container">
       <header>
         <h1>Claims Statistics
@@ -574,4 +482,3 @@
           <?php endif; ?>
         </body>
       </html>
-
